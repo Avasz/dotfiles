@@ -1,0 +1,3 @@
+#!/bin/bash
+URL='https://www.accuweather.com/en/np/nepal-weather'
+wget -q -O- "$URL" 

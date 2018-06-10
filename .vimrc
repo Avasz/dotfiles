@@ -8,6 +8,13 @@ set nocompatible
 "Set linewrap
 set wrap
 
+"Set pastetoggle with <f2>
+set pastetoggle=<F2>
+
+" Set spelling check for en_us with <F5>
+inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""  VUNDLE SECTION  START """""""""""""""""""

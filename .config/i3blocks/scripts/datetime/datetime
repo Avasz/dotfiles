@@ -1,0 +1,14 @@
+#!/bin/bash
+
+TIME=$(date +"%H:%M")
+DATE=$(date '+%b %d, %Y')
+
+if [ "$BLOCK_BUTTON" == 1 ]
+then
+	OUTPUT=" $DATE"
+else
+	OUTPUT=" $TIME"
+fi
+echo $OUTPUT
+
+

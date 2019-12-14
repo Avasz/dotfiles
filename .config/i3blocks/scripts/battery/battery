@@ -1,0 +1,47 @@
+#!/bin/bash
+
+COLOR="#FFFFFF" #Default Color
+
+LABEL="" #Default Label
+
+# Check if adapter present or not
+[[ $(acpi -a | grep "on-line") ]] && STATUS="Charging" || STATUS="Discharging"
+
+CURRENT=$(acpi -b) #Check current battery status
+PERCENT=$(echo $CURRENT | awk '{print $4}' | sed "s/[%,]//g")
+REMAINING=$(echo $CURRENT | awk '{print $5}')
+[[ -z $REMAINING ]] && TIME="" || TIME="[$REMAINING]"
+
+
+if [ "$STATUS" == "Charging" ]
+then
+	LABEL=⚡ 
+	COLOR="#00c853"
+elif [ "$STATUS" == "Discharging" ]
+then
+	if [ $PERCENT -ge 80 ]
+	then
+		LABEL=
+		COLOR="#00c853"
+	elif [ $PERCENT -ge 60 ]
+	then
+		LABEL=
+		COLOR="#aeea00"
+	elif [ $PERCENT -ge 40 ]
+	then
+		LABEL=
+		COLOR="#ffd600"
+	elif [ $PERCENT -ge 20 ]
+	then
+		LABEL=
+		COLOR="#ffab00"
+	elif [ $PERCENT -ge 10 ]
+	then
+		LABEL=
+		COLOR="#ff6d00"
+	else
+		LABEL=
+		COLOR="#dd2c00"
+	fi
+fi
+echo "<span color=\"$COLOR\"><b><span font=\"Font Awesome 5 Free\">$LABEL</span> $PERCENT% $TIME</b></span>"

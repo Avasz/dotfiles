@@ -14,6 +14,8 @@ set pastetoggle=<F2>
 " Set spelling check for en_us with <F5>
 inoremap <F5> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
 
+set encoding=UTF-8
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -35,9 +37,11 @@ call plug#begin('~/.vim/plugged')
 " Plug 'nightsense/forgotten' " theme
 " Plug 'nightsense/vimspectr' " Theme
 " Plug 'tomtom/tlib_vim'
-" Plug 'airblade/vim-gitgutter'
 " Plug 'honza/vim-snippets'
 " Plug 'sjl/gundo.vim' "Don't know how to use it
+" Plug 'ap/vim-css-color'
+Plug 'lilydjwg/colorizer'
+Plug 'airblade/vim-gitgutter'
 Plug 'EinfachToll/DidYouMean'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -46,20 +50,23 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
 Plug 'frazrepo/vim-rainbow' " vim-rainbow for bracket pairs
-Plug 'garbas/vim-snipmate'
+"Plug 'garbas/vim-snipmate'
 Plug 'godlygeek/tabular' " :Tabularize /<pattern>
 Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
 Plug 'jamshedvesuna/vim-markdown-preview'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'mhinz/vim-startify'
+" Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'scwood/vim-hybrid'
+" Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim' " Select & use 'gc'
 Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
 "Plugins must be added before this line
 call plug#end()
 
@@ -75,7 +82,7 @@ call plug#end()
 " colorscheme plastic
 " colorscheme forgotten-dark
 set background=dark
-colorscheme hybrid_material
+colorscheme hybrid
 
 " let g:rainbow_active = 1
 " set title "change title of terminal
@@ -147,6 +154,7 @@ set noshowmode "hide the default modes "--INSERT-- and other modes" in vim becau
 "CTRLP options
 "Exclude
 set wildignore+=*/tmp/*,*.so,*.swp,*/node_modules/*
+let g:ctrlp_show_hidden = 1
 
 "Reload .vimrc file easily
 nmap <silent> <leader>sv :e $MYVIMRC<CR>
@@ -202,3 +210,4 @@ let g:NERDTreeShowIgnoredStatus = 1
 """""""""""""""""""
 " SOME HANDY TIPS "
 """""""""""""""""""
+

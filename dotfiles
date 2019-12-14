@@ -1,0 +1,22 @@
+#!/bin/bash
+
+OPTION=$1
+
+if [ "$1" == "backup" ]
+then
+	# Backup Configs
+	pacman -Qe | awk '{print $1}' > packages.arch
+	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger} .config/
+	cp -R ~/{.vimrc,.Xresources,.bashrc} .
+elif [ "$1" == "restore" ]
+then
+	cp -R .config/* ~/.config/
+	cp -R {.vimrc,.tmux.conf,.Xresources,.bashrc} ~/
+else 
+	echo -e "Available options:
+		./dotfiles restore
+		./dotfiles backup"
+fi
+# SETUP BASH_IT
+
+

@@ -24,115 +24,53 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=15
+SCRIPT_DIR=/home/avasz/.config/i3blocks/scripts/
+#command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=30
 markup=pango
 
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+interval=300
+color=#A4C2F4
+
+[temperature]
+command=$SCRIPT_DIR/temperature/temperature
+interval=60
+label=<span color="#f9a825" font="Font Awesome 5 Free">  </span>
+separator=false
+
+[cpu]
+command=$SCRIPT_DIR/cpu_usage/cpu_usage
+interval=10
+label=<span color="#0277bd" font="Font Awesome 5 Free"> </span>
+separator=false
+
 [memory]
 command=free -mh | sed -n '2p' | awk '{print $3}'
-label=MEM
+label=<span color="#00E676" font="Font Awesome 5 Free">  </span>
 separator=true
 interval=30
 
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-[cpu_usage]
-label=CPU
-interval=10
-#min_width=CPU: 100.00%
-#separator=false
-
-#[memory]
-#label=SWAP
-#instance=swap
-#separator=false
-#interval=30
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-[disk]
-label=HOME
-#instance=/mnt/data
-interval=30
-
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#instance=wlan0
-color=#00FF00
-interval=10
-separator=false
-
-[wifi]
-#instance=wlp3s0
-interval=10
-separator=false
-
-[bandwidth]
-#instance=eth0
-interval=5
-
-
-#[load_average]
-#interval=10
-
 # Battery indicator
-#
-# The battery instance defaults to 0.
 [battery]
-#label=BAT
-label=⚡
-#instance=1
+command=$SCRIPT_DIR/battery/battery
 interval=30
 
-# Date Time
-#
-#[time]
-#command=date '+%Y-%m-%d %H:%M:%S'
-#interval=5
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-#label=VOL
-label=♪
-instance=Master
-#instance=PCM
+command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
+#label=♪ 
 interval=once
 signal=10
-[key-layout]
-command=setxkbmap -query | awk 'BEGIN{layout="";variant=""} /^layout/{layout=$2} /^variant/{variant=" ("$2")"} END{printf("%s%s",layout,variant)}'
-interval=30
 
-[date]
-command=date '+%b %d, %Y'
-interval=3600
-separator=false
-[time]
-command=date '+%H:%M:%S'
-interval=1
-separator=true
-
-# Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
+# [key-layout]
+# command=setxkbmap -query | awk 'BEGIN{layout="";variant=""} /^layout/{layout=$2} /^variant/{variant=" ("$2")"} END{printf("%s%s",layout,variant)}'
+# interval=30
 
 # OpenVPN support
 #
@@ -149,18 +87,23 @@ separator=true
 #label=TEMP
 #interval=10
 
-# Key indicators
-#
-# Add the following bindings to i3 config file:
-#
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#instance=CAPS
-#interval=once
-#signal=11
+[wifi]
+command=$SCRIPT_DIR/wifi/wifi
+label= 
+INTERFACE=wlp0s20f3
+separator=false
+interval=60
 
-#[keyindicator]
-#instance=NUM
-#interval=once
-#signal=11
+[ip]
+command=$SCRIPT_DIR/IP/ip
+interval=300
+color=#00c853
+
+[bandwidth]
+command=$SCRIPT_DIR/bandwidth/bandwidth
+interval=5
+
+[rofi-calendar]
+command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
+interval=60
+label= 

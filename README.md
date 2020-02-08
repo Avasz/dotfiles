@@ -24,14 +24,14 @@ The following are backed-up:
 
 # Screenshots
 
-![1-Desktop][screenshots/1-desktop.png]  
-![2-urxvt][screenshots/2-urxvt.png]  
-![3-neofetch][screenshots/3-neofetch.png]  
-![4-i3gaps][screenshots/4-i3gaps.png]  
-![5-rofi][screenshots/5-rofi.png]  
-![rofi-calendar][.config/i3blocks/rofi-calendar/currentmonth.png]  
-![6-ranger][screenshots/6-ranger.png]  
-![7-vim][screenshots/7-vim.png]  
+![1-Desktop](screenshots/1-desktop.png)
+![2-urxvt](screenshots/2-urxvt.png)
+![3-neofetch](screenshots/3-neofetch.png)
+![4-i3gaps](screenshots/4-i3gaps.png)
+![5-rofi](screenshots/5-rofi.png)  
+![rofi-calendar](.config/i3blocks/rofi-calendar/currentmonth.png)
+![6-ranger](screenshots/6-ranger.png)
+![7-vim](screenshots/7-vim.png)  
 
 
 # Disclaimer

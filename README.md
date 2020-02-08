@@ -29,7 +29,7 @@ The following are backed-up:
 ![3-neofetch](screenshots/3-neofetch.png)
 ![4-i3gaps](screenshots/4-i3gaps.png)
 ![5-rofi](screenshots/5-rofi.png)  
-![rofi-calendar](.config/i3blocks/rofi-calendar/currentmonth.png)
+![rofi-calendar](.config/i3blocks/scripts/rofi-calendar/currentmonth.png)
 ![6-ranger](screenshots/6-ranger.png)
 ![7-vim](screenshots/7-vim.png)  
 

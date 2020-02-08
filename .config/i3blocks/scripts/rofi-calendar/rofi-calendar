@@ -4,33 +4,58 @@ blockdate=$(date +"%H:%M")
 
 year=$(date '+%Y')
 month=$(date '+%m')
+days=$(cal | sed -n "2p")
+
+lines=$(($(cal | wc -l)-2))
+
+rofi_options='-i -dmenu \
+			-markup-rows \
+			-width 14 \
+			-location 5 \
+			-yoffset -25 \
+			-bw 2 \
+			-no-custom'
+
+months=$(locale mon | sed "s/;/\n/g")
+
 case "$BLOCK_BUTTON" in
-    1|2)
-        date=$(date '+%A, %d. %B');;
+    1)
+        date=$(date +"%a %b %d, %Y");;
+	2) 
+		month=$(echo -e "$months" | rofi $rofi_options -lines "$lines" -theme-str 'mainbox {children: [entry,listview];}') 
+        date=$(cal $month $year | sed -n '1s/^  *//;1s/  *$//p')
+		;;
     3)
         (( month == 12 )) && month=1 && year=$((year + 1)) || month=$((month + 1))
         date=$(cal $month $year | sed -n '1s/^  *//;1s/  *$//p')
 esac
+
+
 case "$BLOCK_BUTTON" in
-    1|2|3)
-export TERM=xterm
-cal --color=always $month $year \
-    | sed 's/\x1b\[[7;]*m/\<b\>\<u\>/g' \
-    | sed 's/\x1b\[[27;]*m/\<\/u\>\<\/b\>/g' \
-    | tail -n +2 \
-    | rofi \
-        -dmenu \
-        -markup-rows \
-        -no-fullscreen \
-        -font "Fira Code 14" \
-        -hide-scrollbar \
-		-theme sidetab \
-        -bw 2 \
-        -theme-str '#window {width: 16%;height: 35%; anchor:southeast; location:northwest;}' \
-        -eh 1 \
-        -m -3 \
-        -width -28 \
-        -no-custom \
-        -p "$date" > /dev/null 
-    esac
+    1|3)
+	export TERM=xterm
+
+
+	cal --color=always $month $year | tail -n +2 \
+		| sed 's/\x1b\[[7;]*m/\<span background="silver" foreground="black"\>/g' \
+	    | sed 's/\x1b\[[27;]*m/\<\/span\>/g' \
+		| rofi $rofi_options \
+			-theme-str 'window { children: [message,listview];}'\
+			-mesg "$date" \
+			-lines "$lines" 
+				;;
+
+	2) 
+		export TERM=xterm
+		[ ! -z $month ] && \
+		sleep 0.1
+		cal $month $year | tail -n +2 \
+		| rofi $rofi_options \
+		-theme-str '#window { children: [message,listview];}'\
+		-p "blah"\
+		-mesg "$date"\
+		-lines "$lines"
+			;;
+esac
+
 echo "$blockdate"

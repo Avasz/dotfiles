@@ -56,7 +56,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'itchyny/lightline.vim'
 Plug 'jamshedvesuna/vim-markdown-preview'
 " Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'scwood/vim-hybrid'
+" Plug 'scwood/vim-hybrid'
+Plug 'arcticicestudio/nord-vim'
 " Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'plasticboy/vim-markdown'
@@ -82,7 +83,8 @@ call plug#end()
 " colorscheme plastic
 " colorscheme forgotten-dark
 set background=dark
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme nord
 
 " let g:rainbow_active = 1
 " set title "change title of terminal

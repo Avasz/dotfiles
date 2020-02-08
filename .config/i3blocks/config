@@ -24,8 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-SCRIPT_DIR=/home/avasz/.config/i3blocks/scripts/
-#command=/usr/share/i3blocks/$BLOCK_NAME
+# command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=30
 markup=pango
 
@@ -57,35 +56,6 @@ interval=30
 command=$SCRIPT_DIR/battery/battery
 interval=30
 
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-[volume]
-command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
-#label=♪ 
-interval=once
-signal=10
-
-# [key-layout]
-# command=setxkbmap -query | awk 'BEGIN{layout="";variant=""} /^layout/{layout=$2} /^variant/{variant=" ("$2")"} END{printf("%s%s",layout,variant)}'
-# interval=30
-
-# OpenVPN support
-#
-# Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
-
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
 
 [wifi]
 command=$SCRIPT_DIR/wifi/wifi
@@ -94,16 +64,20 @@ INTERFACE=wlp0s20f3
 separator=false
 interval=60
 
-[ip]
+[IP]
 command=$SCRIPT_DIR/IP/ip
-interval=300
-color=#00c853
+interval=60
 
 [bandwidth]
 command=$SCRIPT_DIR/bandwidth/bandwidth
 interval=5
 
+[volumea]
+command=$SCRIPT_DIR/volume/volume
+interval=30
+
 [rofi-calendar]
 command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
 interval=60
 label= 
+

@@ -45,3 +45,5 @@ then
 	fi
 fi
 echo "<span color=\"$COLOR\"><b><span font=\"Font Awesome 5 Free\">$LABEL</span> $PERCENT% $TIME</b></span>"
+
+/* vim:ft=sh

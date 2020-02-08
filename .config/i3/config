@@ -10,7 +10,7 @@ for_window [class="^.*"] border pixel 0
 floating_modifier $mod
 
 # Load .Xresources on start
-exec xrdb -merge ~/.Xresources
+exec xrdb -merge $HOME/.Xresources
 
 # start a terminal
 bindsym $mod+Return exec urxvt
@@ -38,12 +38,6 @@ bindsym $mod+l focus right
 # bindsym $mod+Right focus right
 
 
-# define names for workspaces
-#set $workspace1 "1: Terminal "
-#set $workspace2 "2: Web "
-#set $workspace3 "3: Chat "
-#set $workspace4 "4: FB "
-#set $workspace5 "5: Media "
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -82,6 +76,13 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+#
+# define names for workspaces
+#set $workspace1 "< Display Screen"
+#set $workspace2 "2: Web "
+#set $workspace3 "3: Chat "
+#set $workspace4 "4: FB "
+#set $workspace5 "5: Media "
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -106,7 +107,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym mod1+space exec "rofi -show combi -show-icons -drun-icon-theme Paper -font 'Fira Code 12'"
+bindsym mod1+space exec "rofi -show combi -width 35 -lines 6"
 bindsym mod1+w exec "rofi -show window"
 
 # reload the configuration file
@@ -119,8 +120,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Screenshot
-bindsym Print exec scrot '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym Shift+Print exec scrot -s '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
+# bindsym Print exec scrot '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f $HOME/Pictures/Screenshots/'
+bindsym Print exec scrot -e "mv $f $HOME/Pictures/Screenshots/hello.png"
+bindsym --release Shift+Print exec scrot -s '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f $HOME/Pictures/Screenshots/'
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -159,7 +161,7 @@ bindsym $mod+r mode "resize"
 bar {
 	font pango:Fira Code 11
 	position bottom
-    status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
+    status_command SCRIPT_DIR=$HOME/.config/i3blocks/scripts i3blocks
 }
 
 assign [class="Telegram"] 4
@@ -189,7 +191,8 @@ for_window [instance="metask"] floating enable;
 for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move position 0px 0px; resize set 1920 500; move scratchpad
 bindsym $mod+space [instance="metask"] scratchpad show
 
-client.focused #555555 #555555 #ffffff #2e9ef4     #2e9ef4
+# client.focused #555555 #555555 #ffffff #2e9ef4     #2e9ef4
+client.focused #555555 #555555 #ffffff #fff     #fff
 
 
 ### Quick terminal right
@@ -282,4 +285,3 @@ for_window [class="Yad"] floating enable
 #for_window [instance="urxvt-avash"] floating enable, move position 1366px 0px, resize set 554 768
 #for_window [instance="feh-avash"] floating enable move right 330px, move down 500px
 #for_window [instance="urxvt-avash3"] floating enable, move position 100px 250px, resize set 500 700
-

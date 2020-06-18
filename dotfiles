@@ -6,7 +6,7 @@ if [ "$1" == "backup" ]
 then
 	# Backup Configs
 	pacman -Qe | awk '{print $1}' > packages.arch
-	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger} .config/
+	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger,dunst} .config/
 	cp -R ~/{.vimrc,.Xresources,.bashrc} .
 elif [ "$1" == "restore" ]
 then

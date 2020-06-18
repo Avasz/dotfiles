@@ -1,5 +1,6 @@
 set $mod Mod4
 exec picom
+exec clipit
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -120,9 +121,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Screenshot
-# bindsym Print exec scrot '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f $HOME/Pictures/Screenshots/'
-bindsym Print exec scrot -e "mv $f $HOME/Pictures/Screenshots/hello.png"
-bindsym --release Shift+Print exec scrot -s '%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f $HOME/Pictures/Screenshots/'
+bindsym Print exec scrot $HOME/Pictures/Screenshots/%Y-%m-%d_%H%M%S.png #'%Y-%m-%d_%H%M%S_$wx$h_scrot.png' -e 'mv $f $HOME/Pictures/Screenshots/'
+bindsym Shift+Print exec "scrot -a $(slop -f '%x,%y,%w,%h')  $HOME/Pictures/Screenshots/%Y-%m-%d_%H%M%S.png"
+bindsym Ctrl+Print exec "scrot -a $(slop -f '%x,%y,%w,%h') /tmp/%Y-%m-%d_%H%M%S.png -e 'xclip -selection clipboard -target image/png -i $f'"
+
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
@@ -173,11 +175,12 @@ hide_edge_borders both
 # Execute nm-applet
 exec nm-applet
 
+exec dunst
 # Alt+shift to toggle between US & NP keymaps
 exec --no-startup-id setxkbmap us,np -option 'grp:alt_shift_toggle'
 
 # Disable touchpad in Thinkpad x260
-exec xinput set-prop `xinput --list | awk '/[Tt]ouch[Pp]ad.*pointer/ {print $6}' | sed 's/id=\(.*\)/\1/'` "Device Enabled" 0
+exec xinput set-prop `xinput --list | awk '/[Tt]ouch[Pp]ad.*pointer/ {print $5}' | sed 's/id=\(.*\)/\1/'` "Device Enabled" 0
 
 # Use Caps Lock key as Escape
 exec setxkbmap -option caps:escape
@@ -276,7 +279,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-for_window [class="Yad"] floating enable
+#for_window [class="Yad"] floating enable
 #for_window [workspace="9"] floating enable
 ##for_window [instance="urxvt-avash"] floating enable, move position 1366px 0px, resize set 
 #for_window [title="mplayer1"] floating enable, move position 0px 0px, resize set 1280 720

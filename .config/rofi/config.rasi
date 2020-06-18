@@ -17,7 +17,7 @@ configuration {
 	case-sensitive: false;
 	cycle: true;
 	sidebar-mode: false;
-	auto-select: true;
+//	auto-select: true;
 	combi-modi: "window,run";
 	hide-scrollbar: true;
 	click-to-exit: true;

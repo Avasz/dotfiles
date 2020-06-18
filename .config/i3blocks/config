@@ -25,9 +25,12 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 # command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=30
+separator_block_width=15
 markup=pango
 
+[ytdl]
+command=$HOME/Projects/i3blocks-ytdl/ytdl
+full_text=<span color="#ef534e"></span>
 [weather]
 command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=300
@@ -72,7 +75,7 @@ interval=60
 command=$SCRIPT_DIR/bandwidth/bandwidth
 interval=5
 
-[volumea]
+[volume]
 command=$SCRIPT_DIR/volume/volume
 interval=30
 

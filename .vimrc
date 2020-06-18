@@ -209,7 +209,9 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 let g:NERDTreeShowIgnoredStatus = 1
 
+" autocmd TextChanged,TextChangedI <buffer> silent write
 """""""""""""""""""
 " SOME HANDY TIPS "
 """""""""""""""""""
 
+au BufNewFile,BufRead Jenkinsfile setf groovy

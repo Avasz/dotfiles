@@ -7,11 +7,11 @@ It will display a nice looking minimal calendar pop-up in rofi when clicking the
 ![Rofi Calendar This Month](currentmonth.png)
 * Fig 1: Rofi Calendar This Month
 
-![Rofi Calendar Next Month](nextmonth.png)
-* Fig 2: Rofi Calendar Next Month
+![Rofi Calendar Next Month](next.png)
+* Fig 1: Rofi Calendar Next Month
 
 ![Rofi Calendar Month Selection](month_selection.png)
-* Fig 3: Rofi Calendar Month Selection
+* Fig 1: Rofi Calendar Month Selection
 
 	
 # Dependencies

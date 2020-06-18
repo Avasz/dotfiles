@@ -2,21 +2,49 @@
 #
 OPTION=$1
 
-if [ "$1" == "backup" ]
-then
-	# Backup Configs
+function backup() {
 	pacman -Qe | awk '{print $1}' > packages.arch
 	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger,dunst} .config/
 	cp -R ~/{.vimrc,.Xresources,.bashrc} .
-elif [ "$1" == "restore" ]
-then
+}
+
+function restore() {
 	cp -R .config/* ~/.config/
 	cp -R {.vimrc,.tmux.conf,.Xresources,.bashrc} ~/
-else 
+}
+
+function push() {
+	echo "Coming soon"
+}
+
+function default() {
 	echo -e "Available options:
-		./dotfiles restore
-		./dotfiles backup"
-fi
+
+	a. Take backup of configurations
+	   ./dotfiles backup
+
+	b. Restore configurations
+	   ./dotfiles restore
+
+	c. Push configurations to github
+	   ./dotfiles push
+	"
+}
+case $OPTION in
+	backup)
+		backup
+		;;
+	restore)
+		restore
+		;;
+	push)
+		push
+		;;
+	*)
+		default
+		;;
+esac
+
 # SETUP BASH_IT
 
 

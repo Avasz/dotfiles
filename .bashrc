@@ -62,3 +62,4 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 alias ls=exa
 alias cat=bat
+export PATH=$PATH:$HOME/.local/bin

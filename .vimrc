@@ -82,7 +82,7 @@ call plug#end()
 " colorscheme vimspectr210-dark
 " colorscheme plastic
 " colorscheme forgotten-dark
-set background=dark
+" set background=dark
 " colorscheme hybrid
 colorscheme nord
 
@@ -215,3 +215,5 @@ let g:NERDTreeShowIgnoredStatus = 1
 """""""""""""""""""
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
+set fillchars+=vert:\▏
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

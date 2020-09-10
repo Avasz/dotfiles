@@ -31,8 +31,16 @@ markup=pango
 [ytdl]
 command=$HOME/Projects/i3blocks-ytdl/ytdl
 full_text=<span color="#ef534e"></span>
+
+[mediaplayer]
+command=$SCRIPT_DIR/mediaplayer/mediaplayer
+instance=spotify
+label=<span color="#1DB954" font="Font Awesome 5 Free"> </span>
+interval=5
+signal=10
+
 [weather]
-command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+command=curl -Ss 'https://wttr.in/lalitpura?format=3' | cut -f"2" -d":" | sed "s/  / /" | sed "s/^ //g"
 interval=300
 color=#A4C2F4
 
@@ -77,10 +85,10 @@ interval=5
 
 [volume]
 command=$SCRIPT_DIR/volume/volume
-interval=30
+interval=once
+signal=10
 
 [rofi-calendar]
 command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
 interval=60
 label= 
-

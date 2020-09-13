@@ -11,6 +11,7 @@ automake
 awesome-terminal-fonts
 aws-cli
 base
+bashtop
 bat-cat-git
 bc
 bind
@@ -40,7 +41,9 @@ exfat-utils
 fakeroot
 fdupes
 feh
+ferdi-bin
 ffmpegthumbnailer
+filelight
 firefox-developer-edition
 flex
 fontforge
@@ -160,6 +163,7 @@ ttf-fira-code
 ttf-font-awesome
 ttf-ubuntu-font-family
 ttf-vlgothic
+unrar
 unzip
 upower
 urxvt-resize-font-git

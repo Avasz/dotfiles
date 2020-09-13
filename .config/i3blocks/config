@@ -27,38 +27,39 @@
 # command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
-
-[ytdl]
-command=$HOME/Projects/i3blocks-ytdl/ytdl
-full_text=<span color="#ef534e"></span>
+color=#c6c6c6
 
 [mediaplayer]
 command=$SCRIPT_DIR/mediaplayer/mediaplayer
 instance=spotify
-label=<span color="#1DB954" font="Font Awesome 5 Free"> </span>
+label=<span size="small" color="grey"> </span>
 interval=5
 signal=10
+
+[ytdl]
+command=$HOME/Projects/i3blocks-ytdl/ytdl
+full_text=<span size="small" color="grey"></span>
+
 
 [weather]
 command=curl -Ss 'https://wttr.in/lalitpura?format=3' | cut -f"2" -d":" | sed "s/  / /" | sed "s/^ //g"
 interval=300
-color=#A4C2F4
 
 [temperature]
 command=$SCRIPT_DIR/temperature/temperature
 interval=60
-label=<span color="#f9a825" font="Font Awesome 5 Free">  </span>
+label=<span font="Font Awesome 5 Free" size="small" color="grey">  </span>
 separator=false
 
 [cpu]
 command=$SCRIPT_DIR/cpu_usage/cpu_usage
 interval=10
-label=<span color="#0277bd" font="Font Awesome 5 Free"> </span>
+label=<span font="Font Awesome 5 Free" size="small" color="grey"> </span>
 separator=false
 
 [memory]
 command=free -mh | sed -n '2p' | awk '{print $3}'
-label=<span color="#00E676" font="Font Awesome 5 Free">  </span>
+label=<span font="Font Awesome 5 Free" size="small" color="grey">  </span>
 separator=true
 interval=30
 
@@ -70,7 +71,7 @@ interval=30
 
 [wifi]
 command=$SCRIPT_DIR/wifi/wifi
-label= 
+label=<span size="small" color="grey"> </span>
 INTERFACE=wlp0s20f3
 separator=false
 interval=60
@@ -78,6 +79,7 @@ interval=60
 [IP]
 command=$SCRIPT_DIR/IP/ip
 interval=60
+align=center
 
 [bandwidth]
 command=$SCRIPT_DIR/bandwidth/bandwidth
@@ -87,8 +89,9 @@ interval=5
 command=$SCRIPT_DIR/volume/volume
 interval=once
 signal=10
+min_width=62
+align=center
 
 [rofi-calendar]
 command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
 interval=60
-label= 

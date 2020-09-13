@@ -1,15 +1,14 @@
 configuration {
 	theme: "darker-than-black";
 	lines: 7;
-	show-icons: true;
-	icon-theme: "paper";
+//	show-icons: true;
+//	icon-theme: "griffin-ghost";
 	sidebar-mode: false;
 	display-drun:               "Activate";
 	display-run:                "Execute";
 	display-ssh:                "SSH";
 	display-combi:              "";
 	display-window:             "Window";
-	show-icons:                 true;
 	sidebar-mode:               false;
 	modi: "window,run,ssh";
 	lines: 7;
@@ -22,7 +21,7 @@ configuration {
 	hide-scrollbar: true;
 	click-to-exit: true;
 	show-match: true;
-	theme: "darker-than-black";
+//	theme: "darker-than-black";
 	combi-hide-mode-prefix: true;
 	me-select-entry: "";
 	me-accept-entry: "MousePrimary";

@@ -3,6 +3,6 @@
 PUBLIC_IP=$(curl icanhazip.com)
 PRIVATE_IP=$(hostname -i | awk '{print $i}')
 [ "$BLOCK_BUTTON" == 3 -o "$BLOCK_BUTTON" == 2 ] && IP=$PUBLIC_IP || IP=$PRIVATE_IP
-echo "<span color='lightgreen'><b>$IP</b></span>"
+echo "<span color='#c6c6c6'>$IP</span>"
 
 /* vim:ft=sh

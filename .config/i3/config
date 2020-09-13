@@ -162,9 +162,19 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 #
 bar {
+
 	font pango:Fira Code 11
 	position bottom
     status_command SCRIPT_DIR=$HOME/.config/i3blocks/scripts i3blocks
+
+	colors {
+    background #0F1212
+    statusline #839496
+    focused_workspace #0f1212 #c6c6c6 #0f1212
+    active_workspace #0f1212 #c6c6c6 #0f1212
+    inactive_workspace #0f1212 #0f1212 #c6c6c6
+    urgent_workspace #0f1212 #d8512e #fdf6e3
+  }
 }
 
 assign [class="Telegram"] 4
@@ -231,19 +241,19 @@ exec redshift
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # Smart Gaps
-smart_gaps on
+smart_gaps inverse_outer
 
 # Smart Borders
 smart_borders on
 
 # Set inner/outer gaps
-gaps inner 20
-gaps outer 35
+gaps inner 10
+gaps outer 0
 
-# Gaps mode
+# aps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -281,13 +291,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-#for_window [class="Yad"] floating enable
-#for_window [workspace="9"] floating enable
-##for_window [instance="urxvt-avash"] floating enable, move position 1366px 0px, resize set 
-#for_window [title="mplayer1"] floating enable, move position 0px 0px, resize set 1280 720
-#for_window [title="feh1"], floating enable, move position 1366px 0px
-#for_window [title="feh2"] floating enable, move position 0px 720px
-#for_window [instance="urxvt-avash"] floating enable, move position 1366px 0px, resize set 554 768
-#for_window [instance="feh-avash"] floating enable move right 330px, move down 500px
-#for_window [instance="urxvt-avash3"] floating enable, move position 100px 250px, resize set 500 700
 

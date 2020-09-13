@@ -16,21 +16,21 @@ REMAINING=$(echo $CURRENT | awk '{print $5}')
 if [ "$STATUS" == "Charging" ]
 then
 	LABEL=⚡ 
-	COLOR="#00c853"
+	COLOR="grey"
 elif [ "$STATUS" == "Discharging" ]
 then
 	if [ $PERCENT -ge 80 ]
 	then
 		LABEL=
-		COLOR="#00c853"
+		COLOR="grey"
 	elif [ $PERCENT -ge 60 ]
 	then
 		LABEL=
-		COLOR="#aeea00"
+		COLOR="grey"
 	elif [ $PERCENT -ge 40 ]
 	then
 		LABEL=
-		COLOR="#ffd600"
+		COLOR="grey"
 	elif [ $PERCENT -ge 20 ]
 	then
 		LABEL=
@@ -38,7 +38,7 @@ then
 	elif [ $PERCENT -ge 10 ]
 	then
 		LABEL=
-		COLOR="#ff6d00"
+		COLOR="#d8512e"
 	else
 		LABEL=
 		COLOR="#dd2c00"
@@ -47,7 +47,7 @@ fi
 DEFAULT="$LABEL</span> $PERCENT% $TIME" # Shows battery percentage and time remaining
 CAPACITY="$(upower -i $(upower -e | grep 'battery') | grep capacity | awk '{print $2}')" # Shows actual remaining capacity (life) of battery
 [ "$BLOCK_BUTTON" == 1 ] && STRING="<span color=\"skyblue\"><b><span font=\"Font Awesome 5 Free\"></span> $CAPACITY</b></span>" \
-	|| STRING="<span color=\"$COLOR\"><b><span font=\"Font Awesome 5 Free\">$DEFAULT</b></span>"
+	|| STRING="<span color=\"$COLOR\"><b><span size=\"x-small\" font=\"Font Awesome 5 Free\" color=\"grey\">$DEFAULT</b></span>"
 echo $STRING
 
 /* vim:ft=sh

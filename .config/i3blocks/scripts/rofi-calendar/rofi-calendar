@@ -8,7 +8,7 @@ days=$(cal | sed -n "2p")
 
 lines=$(($(cal | wc -l)-2))
 
-rofi_options='-i -dmenu \
+rofi_options='-theme calendar -i -dmenu \
 			-markup-rows \
 			-width 14 \
 			-location 5 \

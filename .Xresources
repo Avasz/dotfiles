@@ -1,7 +1,7 @@
 ! gjm from terminal.sexy
 ! special
 *.foreground:   #888a8c
-*.background:   #1e2021
+*.background:   #0F1212
 *.cursorColor:  #888a8c
 
 ! black
@@ -49,8 +49,9 @@ URxvt.transparent:	false
 ! rofi.color-window: argb: EE000000, argb: EE000000, argb: EE000000
 ! rofi.color-normal: argb: 00000000, #DEDEDE, argb: 00000000, #DEDEDE
 URxvt.perl-ext-common:  ...,resize-font,...
-URxvt.internalBorder: 15
+URxvt.internalBorder: 20px
+!URxvt.borderColor: #1e2021
 URxvt.iconfile:  /usr/share/icons/Adwaita/scalable/apps/utilities-terminal-symbolic.svg
 ! vim*transparent: false
 vim.internalBorder: 0
-vim.trasnparent: false
+vim.transparent: false

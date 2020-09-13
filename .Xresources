@@ -1,6 +1,6 @@
 ! gjm from terminal.sexy
 ! special
-*.foreground:   #888a8c
+*.foreground:   #c6c6c6
 *.background:   #0F1212
 *.cursorColor:  #888a8c
 

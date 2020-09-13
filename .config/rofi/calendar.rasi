@@ -4,14 +4,13 @@
  * Copyleft: Avasz <avasz@protonmail.com>
  *******************************************************************************/
 
-
 * {
-	background-color:           #1c1c1c;
+	background-color:           #0F1212;
 	text-color:                 #d3d7cf;
 	selbg:                      #262626;
 	actbg:                      #262626;
 	urgbg:                      #e53935;
-	winbg:			     		white;
+	winbg:						#c6c6c6;
 
 	selected-normal-foreground: @winbg;
 	normal-foreground:          @text-color;
@@ -24,13 +23,13 @@
 	urgent-background:          @background-color;
 
 	selected-active-foreground: @winbg;
-	active-foreground:          @text-color;
+	active-foreground:          @winbg;
 	selected-active-background: @actbg;
 	active-background:          @selbg;
 	separator-style:            "none";
 	margin:                     0;
-	padding:                    0;
 }
+
 
 #window {
     background-color: 			@background-color;

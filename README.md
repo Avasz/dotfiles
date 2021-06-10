@@ -20,12 +20,13 @@ The following are backed-up:
 	- rofi/
 	- picom
 	- ranger/
+	- alacritty/
 - List of installed packages via `pacman -Qe`
 
 # Screenshots
 
 ![1-Desktop](screenshots/1-desktop.png)
-![2-urxvt](screenshots/2-urxvt.png)
+![2-alacritty](screenshots/2-alacritty.png)
 ![4-i3gaps](screenshots/4-i3gaps.png)
 ![5-rofi](screenshots/5-rofi.png)  
 ![rofi-calendar](.config/i3blocks/scripts/rofi-calendar/currentmonth.png)

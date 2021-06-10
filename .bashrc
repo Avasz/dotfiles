@@ -61,5 +61,14 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 alias ls=exa
-alias cat=bat
-export PATH=$PATH:$HOME/.local/bin
+alias cat="bat --theme=TwoDark --italic-text=always"
+export PATH=$PATH:/home/avasz/.local/bin
+
+#complete -C /usr/bin/terraform terraform
+
+# #PATH="/home/avasz/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/avasz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/avasz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/avasz/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/avasz/perl5"; export PERL_MM_OPT;
+eval "$(thefuck --alias)"

@@ -1,45 +1,46 @@
-! gjm from terminal.sexy
 ! special
-*.foreground:   #c6c6c6
-*.background:   #0F1212
-*.cursorColor:  #888a8c
+*.foreground:   #fffff2
+*.background:   #0F1210
+*.cursorColor:  #f0f0f0
 
 ! black
-*.color0:       #515151
-*.color8:       #707172
+*.color0:       #26282a
+*.color8:       #6f6f6f
 
 ! red
-*.color1:       #bf6382
-*.color9:       #eaaec2
+*.color1:       #ff8878
+*.color9:       #fe978b
 
 ! green
-*.color2:       #65a446
-*.color10:      #aed49b
+*.color2:       #94fb73
+*.color10:      #d6fcba
 
 ! yellow
-*.color3:       #ad8a43
-*.color11:      #d4c3a0
-
+*.color3:       #fffcb7
+*.color11:      #fffed5
 ! blue
-*.color4:       #6b85c2
-*.color12:      #afc4e9
+*.color4:       #8bbce5
+*.color12:      #c2e3ff
 
 ! magenta
-*.color5:       #9e6bb8
-*.color13:      #d2b1e2
+*.color5:       #ffb2fe
+*.color13:      #ffc6ff
 
 ! cyan
-*.color6:       #5c9d88
-*.color14:      #a4d0c1
+*.color6:       #a2e1f8
+*.color14:      #c0e9f8
 
 ! white
-*.color7:       #919191
+*.color7:       #ffffff
 *.color15:      #d0d0d0
 
-! URxvt.font: xft:FiraCode Nerd Font:style=regular:pixelsize=18:antialias=true:hinting=true, xft:Lohit Devanagari:style=Regular, xft:Font Awesome 5 Free Regular:style=Regular
-! URxvt.font:             xft:inconsolata:pixelsize=18:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
-! URxvt.font: xft:Fira Code:style=regular:pixelsize=18:antialias=true:hinting=true
-URxvt.font: xft:FuraCode Nerd Font Mono:style=regular:pixelsize=18, xft:Freesans:style=regular
+URxvt*font: xft:Victor Mono:style=Medium:size=16,xft:VictorMono Nerd Font:style=Regular
+URxvt*boldFont: xft:Victor Mono:style=Bold:size=16,xft:VictorMono Nerd Font:style=Regular
+URxvt*italicFont: xft:Victor Mono:style=Bold italic:size=16,xft:VictorMono Nerd Font:style=Regular
+URxvt*boldItalicFont: xft:Victor Mono:style=Bold italic:size=16,xft:VictorMono Nerd Font:style=Regular
+!URxvt*font: xft:Mononoki:size=9,xft:DejaVuSansMono NF:pixelsize=15,xft:Everson Mono:pixelsize=15,xft:Symbola:size=10
+
+
 URxvt.letterspace: 1
 URxvt.scrollBar: false
 URxvt.transparent:	false
@@ -49,9 +50,8 @@ URxvt.transparent:	false
 ! rofi.color-window: argb: EE000000, argb: EE000000, argb: EE000000
 ! rofi.color-normal: argb: 00000000, #DEDEDE, argb: 00000000, #DEDEDE
 URxvt.perl-ext-common:  ...,resize-font,...
-URxvt.internalBorder: 20px
+URxvt.internalBorder: 10px
 !URxvt.borderColor: #1e2021
 URxvt.iconfile:  /usr/share/icons/Adwaita/scalable/apps/utilities-terminal-symbolic.svg
-! vim*transparent: false
 vim.internalBorder: 0
 vim.transparent: false

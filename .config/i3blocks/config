@@ -48,18 +48,18 @@ interval=300
 [temperature]
 command=$SCRIPT_DIR/temperature/temperature
 interval=60
-label=<span font="Font Awesome 5 Free" size="small" color="grey">  </span>
+label=<span size="large" color="grey">﨎 </span>
 separator=false
 
 [cpu]
 command=$SCRIPT_DIR/cpu_usage/cpu_usage
 interval=10
-label=<span font="Font Awesome 5 Free" size="small" color="grey"> </span>
+label=<span size="large" color="grey">﬙ </span>
 separator=false
 
 [memory]
 command=free -mh | sed -n '2p' | awk '{print $3}'
-label=<span font="Font Awesome 5 Free" size="small" color="grey">  </span>
+label=<span size="large" color="grey"> </span>
 separator=true
 interval=30
 
@@ -71,7 +71,7 @@ interval=30
 
 [wifi]
 command=$SCRIPT_DIR/wifi/wifi
-label=<span size="small" color="grey"> </span>
+label=<span size="large" color="grey"> </span>
 INTERFACE=wlp0s20f3
 separator=false
 interval=60
@@ -95,3 +95,12 @@ align=center
 [rofi-calendar]
 command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
 interval=60
+
+[dunst]
+command=$SCRIPT_DIR/dunst/dunst
+markup=pango
+interval=once
+format=json
+#min_width=50
+#align=center
+#DUNST_MUTE=off

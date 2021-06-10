@@ -11,10 +11,10 @@ CURRENT_STATE=$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{print $4}')
 if [ "$CURRENT_STATE" == "off" ]
 then
 		COLOR="#D8512E"
-		ICON='<span font="Font Awesome 5 Free" size="small"></span>'
+		ICON='<span size="large">婢</span>'
 else
 		COLOR="#c6c6c6"
-		ICON='<span font="Font Awesome 5 Free" size="small" color="grey"></span>'
+		ICON='<span size="large" color="grey">墳</span>'
 
 fi
 echo "<span color=\"$COLOR\">$ICON $CURRENT_VOLUME</span>"

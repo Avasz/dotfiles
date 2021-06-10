@@ -4,7 +4,7 @@ OPTION=$1
 
 function backup() {
 	pacman -Qe | awk '{print $1}' > packages.arch
-	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger,dunst} .config/
+	cp -R ~/.config/{i3,i3blocks,rofi,picom,ranger,dunst,alacritty} .config/
 	cp -R ~/{.vimrc,.Xresources,.bashrc} .
 
 }
@@ -31,31 +31,31 @@ function screenshot() {
 	$SLEEP
 	scrot screenshots/1-desktop.png
 	
-	# 2. Start urxvt
+	# 2. Start alacritty
 	
-	i3-msg exec 'urxvt -name test'
+	i3-msg exec 'alacritty --class test'
 	$SLEEP
-	scrot screenshots/2-urxvt.png
+	scrot screenshots/2-alacritty.png
 	
 	# 3. Screenshot of gaps
 	
-	i3-msg exec 'urxvt -name test 2 -e "htop"'
+	i3-msg exec 'alacritty --class test -e "htop"'
 	$SLEEP
 	scrot screenshots/4-i3gaps.png
 	
-	kill $(ps ax | grep "urxvt -name test" | cut -f"1" -d" ")
+	kill $(ps ax | grep "alacritty --class test" | cut -f"1" -d" ")
 	
 	# 4. Ranger
-	i3-msg exec 'urxvt -name test -e ranger /'
+	i3-msg exec 'alacritty --class test -e ranger /'
 	$SLEEP
 	scrot screenshots/6-ranger.png
-	kill $(ps ax | grep "urxvt -name test" | cut -f"1" -d" ")
+	kill $(ps ax | grep "alacritty --class test" | cut -f"1" -d" ")
 	
 	# 5. vim
-	i3-msg exec "urxvt -name test -e vim $HOME/.config/i3blocks/config"
+	i3-msg exec "alacritty --class test -e vim $HOME/.config/i3blocks/config"
 	$SLEEP
 	scrot screenshots/7-vim.png
-	kill $(ps ax | grep "urxvt -name test" | cut -f"1" -d" ")
+	kill $(ps ax | grep "alacritty --class test" | cut -f"1" -d" ")
 	
 	# 6. rofi (Starting Feh for white background)
 	i3-msg exec "feh -F $HOME/Pictures/wallhaven/nature/wallhaven-q6o997.jpg"

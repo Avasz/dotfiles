@@ -12,7 +12,8 @@ exec xrdb -merge $HOME/.Xresources
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code 11
+#font pango:Fira Code 11
+font pango: Overpass Light 11
 for_window [class="^.*"] border pixel 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -20,7 +21,7 @@ floating_modifier $mod
 
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -133,6 +134,8 @@ bindsym XF86AudioRaiseVolume exec "amixer -q -D pulse sset Master on && amixer -
 # resize window (you can also use the mouse for that)
 exec feh --bg-center /home/avasz/Pictures/x390.png
 
+bindsym $mod+i exec "urxvt -e taskell /home/avasz/Documents/ToDo/taskell.md"
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -163,7 +166,7 @@ bindsym $mod+r mode "resize"
 #
 bar {
 
-	font pango:Fira Code 11
+	font pango:Victor Mono Bold 11
 	position bottom
     status_command SCRIPT_DIR=$HOME/.config/i3blocks/scripts i3blocks
 
@@ -173,12 +176,12 @@ bar {
     focused_workspace #0f1212 #c6c6c6 #0f1212
     active_workspace #0f1212 #c6c6c6 #0f1212
     inactive_workspace #0f1212 #0f1212 #c6c6c6
-    urgent_workspace #0f1212 #d8512e #fdf6e3
+    urgent_workspace #0f1212 #EA6B66 #fdf6e3
   }
 }
 
 assign [class="Telegram"] 4
-assign [class="Caprine"] 4
+# assign [class="Caprine"] 4
 assign [class="^Slack$"] 4
 # assign [class="Chromium"] 4
 
@@ -191,7 +194,7 @@ exec dunst
 # Alt+shift to toggle between US & NP keymaps
 exec --no-startup-id setxkbmap us,np -option 'grp:alt_shift_toggle'
 
-# Disable touchpad in Thinkpad x260
+# Disable touchpad in Thinkpad x260 || x390
 exec xinput set-prop `xinput --list | awk '/[Tt]ouch[Pp]ad.*pointer/ {print $5}' | sed 's/id=\(.*\)/\1/'` "Device Enabled" 0
 
 # Use Caps Lock key as Escape
@@ -201,7 +204,8 @@ exec setxkbmap -option caps:escape
 bindsym ctrl+Mod1+l exec i3lock-fancy
 
 ## quick terminal
-exec --no-startup-id urxvt -name metask -e tmux new -A -s "metask"
+#exec --no-startup-id urxvt -name metask -e tmux new -A -s "metask"
+exec --no-startup-id alacritty --class metask -e tmux new -A -s "metask"
 for_window [instance="metask"] floating enable;
 for_window [instance="metask"] move scratchpad; [instance="metask"] scratchpad show; move position 0px 0px; resize set 1920 500; move scratchpad
 bindsym $mod+space [instance="metask"] scratchpad show
@@ -224,11 +228,16 @@ client.focused #555555 #555555 #ffffff #fff     #fff
 #bindsym $mod+i [instance="mid"] scratchpad show
 
 ## Quick terminal right
-exec --no-startup-id urxvt -name right 
+#exec --no-startup-id urxvt -name right 
+exec --no-startup-id alacritty --class right
 for_window [instance="right"] floating disable;
 for_window [instance="right"] move scratchpad; [instance="right"] scratchpad show; move position 1280px 0px; resize set 640 1080; move scratchpad
 bindsym $mod+o [instance="right"] scratchpad show
 
+## ToDo Taskell
+#exec --no-startup-id urxvt -name taskell -e taskell /home/avasz/Documents/ToDo/taskell.md
+#for_window [instance="taskell"] floating disable;
+#for_window [instance="taskell"] move scratchpad; [instance="taskell"] scratchpad show; resize set 1600 900; move scratchpad
 ## Cmus
 #exec --no-startup-id xterm -name music -e "cat /home/avasz/.config/i3/config"
 #for_window [instance="music"] floating enable;

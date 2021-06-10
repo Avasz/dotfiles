@@ -46,8 +46,8 @@ then
 fi
 DEFAULT="$LABEL</span> $PERCENT% $TIME" # Shows battery percentage and time remaining
 CAPACITY="$(upower -i $(upower -e | grep 'battery') | grep capacity | awk '{print $2}')" # Shows actual remaining capacity (life) of battery
-[ "$BLOCK_BUTTON" == 1 ] && STRING="<span color=\"skyblue\"><b><span font=\"Font Awesome 5 Free\"></span> $CAPACITY</b></span>" \
-	|| STRING="<span color=\"$COLOR\"><b><span size=\"x-small\" font=\"Font Awesome 5 Free\" color=\"grey\">$DEFAULT</b></span>"
+[ "$BLOCK_BUTTON" == 1 ] && STRING="<span color=\"skyblue\"><b><span></span> $CAPACITY</b></span>" \
+	|| STRING="<span color=\"$COLOR\"><b><span size=\"x-small\" color=\"grey\">$DEFAULT</b></span>"
 echo $STRING
 
 /* vim:ft=sh

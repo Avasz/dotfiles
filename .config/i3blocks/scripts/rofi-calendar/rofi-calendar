@@ -6,7 +6,7 @@ year=$(date '+%Y')
 month=$(date '+%m')
 days=$(cal | sed -n "2p")
 
-lines=$(($(cal | wc -l)-2))
+lines=$(($(cal | wc -l)-1))
 
 rofi_options='-theme calendar -i -dmenu \
 			-markup-rows \

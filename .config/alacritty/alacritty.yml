@@ -1,0 +1,100 @@
+env:
+  TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: '1.5'
+  WINIT_HIDPI_FACTOR: '1'
+
+window:
+
+  padding:
+    x: 10
+    y: 8
+  dynamic_padding: true
+
+  dimensions:
+    columns: 0
+    lines: 0
+  decorations: full
+
+  #  startup_mode: Maximized
+  scrolling:
+    history: 10000
+    multiplier: 3
+
+  draw_bold_text_with_bright_colors: true
+
+# Fonts
+font:
+  normal:
+    family: Victor Mono
+    style: Medium
+
+  bold:
+    family: Victor Mono
+    style: Bold
+
+  italic:
+    family: Victor Mono
+    style:  Bold Italic
+
+  bold_italic:
+    family: Victor Mono
+    style: Bold Italic
+
+  size: 10
+
+# Colors (Taerminal)
+colors:
+  # Default colors
+  primary:
+    background: '#0F1210'
+    foreground: '#fffff2'
+  cursor:
+    background: '#f0f0f0'
+    foreground: '#26282a'
+
+  # Normal colors
+  normal:
+    black: '#26282a'
+    red: '#ff8878'
+    green: '#94fb73'
+    yellow: '#fffcb7'
+    blue: '#8bbce5'
+    magenta: '#ffb2fe'
+    cyan: '#a2e1f8'
+    white: '#ffffff'
+
+  # Bright colors
+  bright:
+    black: '#6f6f6f'
+    red: '#fe978b'
+    green: '#d6fcba'
+    yellow: '#fffed5'
+    blue: '#c2e3ff'
+    magenta: '#ffc6ff'
+    cyan: '#c0e9f8'
+    white: '#ffffff'
+
+background_opacity: 1
+
+mouse:
+  hide_when_typing: true
+
+selection:
+  save_to_clipboard: true
+
+# mouse_bindings:
+#     - { mouse: Middle, action: PasteSelection }
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: Control|Alt, action: Paste }
+  - { key: C, mods: Control|Alt, action: Copy }
+
+shell:
+  program: /bin/bash
+
+
